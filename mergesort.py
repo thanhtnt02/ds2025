@@ -2,12 +2,12 @@ import matplotlib.pyplot as plt
 
 
 def assign_value(destination, dest_index, source, source_index):
-    # Assigns a value from source to destination
+    """Assigns a value from source to destination."""
     destination[dest_index] = source[source_index]
 
 
 def merge_sort(lst):
-   # Sorts a list in-place using the merge sort algorithm
+    """Sorts a list in-place using the merge sort algorithm."""
     if len(lst) <= 1:
         return
 
@@ -42,16 +42,29 @@ def merge_sort(lst):
         merged_index += 1
 
 
-def plot_list(data, title):
-    #Plots a list of numbers.
-    plt.plot(range(len(data)), data)
-    plt.title(title)
-    plt.show()
+# Ursprüngliche Liste
+my_list = [54, 26, 93, 17, 77, 31, 44, 55, 20]
 
+# Plot vor dem Sortieren
+plt.figure(figsize=(8, 4))
+plt.bar(range(len(my_list)), my_list, color='steelblue')
+plt.title("Vor dem Sortieren (MergeSort)")
+plt.xlabel("Index")
+plt.ylabel("Wert")
+plt.grid(True, axis='y', linestyle='--', linewidth=0.5)
+plt.tight_layout()
+plt.show()
 
-if __name__ == "__main__":
-    data = [54, 26, 93, 17, 77, 31, 44, 55, 20]
-    plot_list(data, "Vor dem Sortieren")
-    merge_sort(data)
-    plot_list(data, "Nach dem Sortieren")
+# Sortieren
+merge_sort(my_list)
+
+# Plot nach dem Sortieren
+plt.figure(figsize=(8, 4))
+plt.bar(range(len(my_list)), my_list, color='seagreen')
+plt.title("Nach dem Sortieren (MergeSort)")
+plt.xlabel("Index")
+plt.ylabel("Wert")
+plt.grid(True, axis='y', linestyle='--', linewidth=0.5)
+plt.tight_layout()
+plt.show()
 
